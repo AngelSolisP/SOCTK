@@ -409,132 +409,76 @@ the hijacked data.
             </div>
 
             <div class="row">
-
                 <div class="column large-12 intro">
-                    
                     <h1>Analysis of Different Tools with Costs</h1>
-                    <h2>SOCaaS by QUANTY</h2>
-                    
-                    <p class="lead">
-                    </p>
-                    
-                    <p class="lead">
-                        <strong>Features:</strong>
-                    </p>
-                    <ul>
-                        <li>50 Windows servers (5 with agent)</li>
-                        <li>10 Linux servers (5 with agent)</li>
-                        <li>300 laptops/PCs (without agent)</li>
-                        <li>5 switches</li>
-                        <li>1 wireless controller</li>
-                        <li>2 firewalls</li>
-                        <li>1 hypervisor</li>
-                        <li>2 physical sensors for the network</li>
-                    </ul>
-                    
-                    <p class="lead">
-                        <strong>Total Cost:</strong> $10,785 USD Monthly
-                    </p>
-                                    
-                </div>
             
-            </div> <!-- end row -->
+                    <h2>SOCaaS by QUANTY</h2>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li><strong>Servers:</strong>
+                            <ul>
+                                <li>50 Windows servers (5 with agent)</li>
+                                <li>10 Linux servers (5 with agent)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Endpoints:</strong>
+                            <ul>
+                                <li>300 laptops/PCs (without agent)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Network Devices:</strong>
+                            <ul>
+                                <li>5 switches</li>
+                                <li>1 wireless controller</li>
+                                <li>2 firewalls</li>
+                                <li>1 hypervisor</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sensors:</strong>
+                            <ul>
+                                <li>2 physical network sensors</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p><strong>Total Cost:</strong> $10,785 USD <em>monthly</em></p>
+                </div>
+            </div>
+            
+            <hr>
             
             <div class="row">
                 <div class="column large-12 intro">
                     <h2>Our Solution</h2>
-                    <p class="lead">
-                        <strong>Description:</strong> The internal solution utilizes open-source software to manage SIEM, SOAR, EDR, and incident management, along with specialized SOC engineers for monitoring.
-                    </p>
-                    
-                    <h3>Components:</h3>
-                    <ol>
-                        <li>
-                            <strong>SIEM: Wazuh (Open Source)</strong>
-                            <ul>
-                                <li>Local implementation with no licensing costs, only infrastructure expenses.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>SOAR: Shuffle (300k app runs and 8 CPU cores)</strong>
-                            <ul>
-                                <li>Annual Cost: $960 USD</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>CASE Manager: DFIR-IRIS (Open Source)</strong>
-                            <ul>
-                                <li>No cost, but relies on community support.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>EDR: ThreatDown Malwarebytes</strong>
-                            <ul>
-                                <li>Cost: $99 USD per endpoint, minimum of 5 endpoints.</li>
-                                <li>For 300 endpoints:
-                                    <ul>
-                                        <li>$99 USD x 300 endpoints = $29,700 USD annually</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>SOC Engineers (in Mexico)</strong>
-                            <ul>
-                                <li>Cost per engineer: $1,321 USD</li>
-                                <li>Depending on size and complexity, a medium-sized company may require around 2 to 4 SOC engineers. Considering 3 engineers:
-                                    <ul>
-                                        <li>3 engineers x $1,321 USD = $3,963 USD monthly</li>
-                                        <li>Annual Cost: $3,963 USD x 12 months = $47,556 USD annually</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ol>
-                    
                     <h3>Total Cost of Our Tools:</h3>
                     <ul>
-                        <li><strong>Wazuh (SIEM) Cost:</strong> $0 USD (Open Source)</li>
-                        <li><strong>Shuffle (SOAR) Cost:</strong> $960 USD annually</li>
-                        <li><strong>DFIR-IRIS (CASE Manager) Cost:</strong> $0 USD (Open Source)</li>
-                        <li><strong>Malwarebytes (EDR) Cost:</strong> $29,700 USD annually</li>
-                        <li><strong>SOC Engineers Cost:</strong> $47,556 USD annually</li>
-                        <li><strong>Total Annual Cost:</strong> $78,216 USD</li>
+                        <li><strong>Wazuh (SIEM):</strong> $0 USD (Open Source)</li>
+                        <li><strong>Shuffle (SOAR):</strong> $960 USD <em>annually</em></li>
+                        <li><strong>DFIR-IRIS (Case Manager):</strong> $0 USD (Open Source)</li>
+                        <li><strong>Malwarebytes (EDR):</strong> $29,700 USD <em>annually</em></li>
+                        <li><strong>SOC Engineers:</strong> $47,556 USD <em>annually</em></li>
                     </ul>
-                    
+                    <p><strong>Total Annual Cost:</strong> $78,216 USD</p>
                 </div>
-            </div> <!-- end row -->
+            </div>
+            
+            <hr>
             
             <div class="row">
-
                 <div class="column large-12 intro">
-            
                     <h2>Azure Sentinel</h2>
-                    <p class="lead">
-                        <ul>
-                            <li><strong>Description:</strong> A native cloud solution that charges based on the volume of data analyzed and the number of alerts generated.</li>
-                            <li><strong>Cost:</strong> For a medium-sized company, Azure Sentinel costs approximately:
-                                <ul>
-                                    <li>$2.46 USD per GB of data ingested into the platform.</li>
-                                    <li>For a volume of 100 GB daily, the cost would be:
-                                        <ul>
-                                            <li>100 GB x $2.46 USD = $246 USD daily</li>
-                                            <li>Annual cost: $246 USD x 365 = $89,790 USD annually</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </p>
-            
-                    <hr class="fancy">
+                    <h3>Cost:</h3>
+                    <ul>
+                        <li><strong>Data Ingestion Rate:</strong> $2.46 USD per GB of data ingested into the platform.</li>
+                        <li><strong>For a Medium-Sized Company (100 GB daily):</strong>
+                            <ul>
+                                <li><strong>Daily Cost:</strong> 100 GB x $2.46 USD = $246 USD</li>
+                                <li><strong>Annual Cost:</strong> $246 USD x 365 days = $89,790 USD</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
+            </div>
             
-            </div> <!-- end row -->
-                        
-
-
-    </section> <!-- end s-about -->
 
 
     <section id="about" class="s-about">
