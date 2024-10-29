@@ -4967,3 +4967,33 @@ html.no-csstransitions .s-hero__content {
         font-size: 1.4rem;
     }
 }
+
+/* ------------------------------------------------------------------- 
+ * calculadora.html:
+ * 
+ * ------------------------------------------------------------------- */
+ body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+#resultado {
+    font-size: 1.5em;
+    color: #007BFF;
+}
+
+#detalle_costo {
+    margin-top: 20px;
+}
+
+.table-responsive {
+    margin-bottom: 20px;
+}
+
+/* Estilos para el botón de la navbar */
+.dropdown .dropdown-toggle {
+    margin-left: auto;
+}
