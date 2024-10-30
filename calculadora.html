@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Costos SOCaaS</title>
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Librería jsPDF para exportar PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SOCaaS</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Calculadora de Costos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+                <!-- Selector de idioma -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownIdioma" data-bs-toggle="dropdown" aria-expanded="false">
+                        Idioma
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownIdioma">
+                        <li><a class="dropdown-item" href="#" onclick="cambiarIdioma('es')">Español</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="cambiarIdioma('en')">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container my-5">
+        <h1 class="mb-4">Calculadora de Costos SOCaaS</h1>
+        <form id="form-calculadora">
+            <!-- Tabla de componentes -->
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Componente</th>
+                            <th>Seleccionar</th>
+                            <th>Opción</th>
+                            <th>Parámetros</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- SIEM -->
+                        <tr>
+                            <td><strong>SIEM</strong></td>
+                            <td><input type="checkbox" name="componentes" value="siem" class="form-check-input"></td>
+                            <td>
+                                <select name="opcion_siem" class="form-select">
+                                    <option value="wazuh">Wazuh</option>
+                                    <option value="splunk">Splunk</option>
+                                    <option value="elk">ELK Stack</option>
+                                    <option value="qrader">IBM QRadar</option>
+                                    <option value="arcsight">Micro Focus ArcSight</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="param_siem_eps">Cantidad de Eventos por Segundo (EPS):</label>
+                                <input type="number" name="param_siem_eps" min="1" value="100" class="form-control">
+                            </td>
+                            <td id="precio_siem">$0</td>
+                        </tr>
+                        <!-- SOAR -->
+                        <tr>
+                            <td><strong>SOAR</strong></td>
+                            <td><input type="checkbox" name="componentes" value="soar" class="form-check-input"></td>
+                            <td>
+                                <select name="opcion_soar" class="form-select">
+                                    <option value="shuffle">Shuffle</option>
+                                    <option value="phantom">Splunk Phantom</option>
+                                    <option value="demisto">Palo Alto Demisto</option>
+                                    <option value="swimlane">Swimlane</option>
+                                    <option value="resilient">IBM Resilient</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="param_soar_playbooks">Número de Playbooks:</label>
+                                <input type="number" name="param_soar_playbooks" min="1" value="5" class="form-control">
+                            </td>
+                            <td id="precio_soar">$0</td>
+                        </tr>
+                        <!-- DFIR -->
+                        <tr>
+                            <td><strong>DFIR</strong></td>
+                            <td><input type="checkbox" name="componentes" value="dfir" class="form-check-input"></td>
+                            <td>
+                                <select name="opcion_dfir" class="form-select">
+                                    <option value="iris">Iris</option>
+                                    <option value="autopsy">Autopsy</option>
+                                    <option value="encase">EnCase</option>
+                                    <option value="ftk">FTK</option>
+                                    <option value="xways">X-Ways</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="param_dfir_casos">Cantidad de Casos por Mes:</label>
+                                <input type="number" name="param_dfir_casos" min="1" value="2" class="form-control">
+                            </td>
+                            <td id="precio_dfir">$0</td>
+                        </tr>
+                        <!-- EDR -->
+                        <tr>
+                            <td><strong>EDR</strong></td>
+                            <td><input type="checkbox" name="componentes" value="edr" class="form-check-input"></td>
+                            <td>
+                                <select name="opcion_edr" class="form-select">
+                                    <option value="threatdown">ThreatDown</option>
+                                    <option value="crowdstrike">CrowdStrike</option>
+                                    <option value="sentinelone">SentinelOne</option>
+                                    <option value="carbonblack">Carbon Black</option>
+                                    <option value="fireeye">FireEye</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="param_edr_endpoints">Cantidad de Endpoints:</label>
+                                <input type="number" name="param_edr_endpoints" min="1" value="50" class="form-control">
+                            </td>
+                            <td id="precio_edr">$0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón de cálculo y resultado -->
+            <div class="text-end">
+                <button type="button" class="btn btn-primary" onclick="calcularCosto()">Calcular Costo</button>
+            </div>
+        </form>
+
+        <!-- Mostrar resultado -->
+        <div class="mt-4">
+            <h2 id="resultado">Costo Total Estimado: $0</h2>
+            <!-- Detalle del costo -->
+            <div id="detalle_costo">
+                <h3>Detalle del Costo:</h3>
+                <ul id="lista_detalle_costo" class="list-group"></ul>
+            </div>
+        </div>
+
+        <!-- Botones para exportar y contactar -->
+        <div class="mt-4">
+            <button type="button" class="btn btn-success" onclick="exportarPDF()">Descargar Cotización en PDF</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#contactModal">Contactar a Ventas</button>
+        </div>
+
+        <!-- Modal para contacto -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Contenido del modal -->
+              <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contacto con Ventas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                <!-- Formulario de contacto -->
+                <form id="form-contacto">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo Electrónico:</label>
+                        <input type="email" id="correo" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje:</label>
+                        <textarea id="mensaje" class="form-control" rows="3" required>Me gustaría obtener más información sobre esta cotización.</textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="enviarCorreo()">Enviar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts de Bootstrap y personalizados -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- i18next para internacionalización -->
+    <script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+    <!-- Archivo JavaScript de la calculadora -->
+    <script src="calculadora.js"></script>
+</body>
+</html>
